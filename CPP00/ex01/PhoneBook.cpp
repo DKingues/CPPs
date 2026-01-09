@@ -3,6 +3,7 @@
 #include <string>
 
 PhoneBook::PhoneBook() : index(0), numberOfContacts(0){}
+PhoneBook::~PhoneBook(){}
 
 int main (int ac, char **av)
 {

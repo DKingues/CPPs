@@ -3,6 +3,7 @@
 #include <string>
 
 Contact::Contact() : firstName(""), lastName(""), nickname(""), phoneNumber(""), darkestSecret(""){};
+Contact::~Contact(){}
 
 void	Contact::setInfo()
 {
@@ -11,6 +12,7 @@ void	Contact::setInfo()
 	std::cout << "First Name: ";
 	if (std::cin.eof())
 		exit(0);
+	validStringInput();
 	std::cin >> firstName;
 	std::cout << "\033[1A\r\033[2K" << "\033[1;32mFirst Name: \033[0m" << firstName << std::flush << std::endl;
 	std::cout << "Last Name: ";
@@ -35,10 +37,25 @@ void	Contact::setInfo()
 	std::cout << std::endl << "\033[1;32mContact added.\033[0m" << std::endl << std::endl;
 }
 
+std::string Contact::validStringInput()
+{
+	std::string input;
+//	bool 		isValid;
+
+	while (1)
+	{
+		if(std::cin.eof())
+			exit(0);
+		std::cin >> input;
+		std::cout << "HERE" << input;
+	}
+}
+
 std::string	Contact::validPhoneNumber(void)
 {
 	std::string input;
-	bool	isValid;
+	bool		isValid;
+
 	while (1)
 	{
 		if (std::cin.eof())

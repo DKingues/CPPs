@@ -6,9 +6,11 @@ class Contact
 {
 	public:
 		Contact();
+		~Contact();
 		void	setInfo();
 		void	getInfo();
 		std::string validPhoneNumber();
+		std::string validStringInput();
 		std::string get_fN();
 		std::string get_lN();
 		std::string get_nN();
