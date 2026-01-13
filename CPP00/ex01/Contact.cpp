@@ -7,48 +7,29 @@ Contact::~Contact(){}
 
 void	Contact::setInfo()
 {
-	std::string temp;
-
 	std::cout << "First Name: ";
-	if (std::cin.eof())
-		exit(0);
-	validStringInput();
-	std::cin >> firstName;
-	std::cout << "\033[1A\r\033[2K" << "\033[1;32mFirst Name: \033[0m" << firstName << std::flush << std::endl;
-	std::cout << "Last Name: ";
-	if (std::cin.eof())
-		exit(0);
-	std::cin >> lastName;
-	std::cout << "\033[1A\r\033[2K" << "\033[1;32mLast Name: \033[0m" << lastName << std::flush << std::endl;
-	std::cout << "Nickname: ";
-	if (std::cin.eof())
-		exit(0);
-	std::cin >> nickname;
-	std::cout << "\033[1A\r\033[2K" << "\033[1;32mNickname: \033[0m" << nickname << std::flush << std::endl;
-	std::cout << "Phone Number: ";
-	phoneNumber = validPhoneNumber();
-	std::cout << "\033[1A\r\033[2K" << "\033[1;32mPhone Number: \033[0m" << phoneNumber << std::flush << std::endl;
 	std::cin.ignore(1, '\n');
+	validStringInput("First Name", firstName);
+	std::cout << "Last Name: ";
+	validStringInput("Last Name", lastName);
+	std::cout << "Nickname: ";
+	validStringInput("Nickname", nickname);
+	std::cout << "Phone Number: ";
+	validStringInput("Phone Number", phoneNumber);
 	std::cout << "Darkest Secret: ";
-	if (std::cin.eof())
-		exit(0);
-	std::getline(std::cin, darkestSecret);
-	std::cout << "\033[1A\r\033[2K" << "\033[1;32mDarkest Secret: \033[0m" << darkestSecret << std::flush << std::endl;
+	validStringInput("Darkest Secret", darkestSecret);
 	std::cout << std::endl << "\033[1;32mContact added.\033[0m" << std::endl << std::endl;
 }
 
-std::string Contact::validStringInput()
+void Contact::validStringInput(std::string name, std::string &var)
 {
-	std::string input;
-//	bool 		isValid;
-
-	while (1)
-	{
-		if(std::cin.eof())
-			exit(0);
-		std::cin >> input;
-		std::cout << "HERE" << input;
-	}
+	if (std::cin.eof())
+		exit(0);
+	if (name == "Phone Number")
+		phoneNumber = validPhoneNumber();
+	else
+		std::getline(std::cin, var);
+	std::cout << "\033[1A\r\033[2K" << "\033[1;32m" << name << ": \033[0m" << var << std::flush << std::endl;
 }
 
 std::string	Contact::validPhoneNumber(void)
@@ -60,11 +41,11 @@ std::string	Contact::validPhoneNumber(void)
 	{
 		if (std::cin.eof())
 			exit(0);
-		std::cin >> input;
+		std::getline(std::cin, input);
 		isValid = true;
 		for (size_t i = 0; input[i]; i++)
 		{
-			if (!isdigit(input[i]))
+			if (!isdigit(input[i]) && !isspace(input[i]))
 			{
 				isValid = false;
 				break;

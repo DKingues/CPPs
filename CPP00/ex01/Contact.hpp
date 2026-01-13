@@ -10,7 +10,7 @@ class Contact
 		void	setInfo();
 		void	getInfo();
 		std::string validPhoneNumber();
-		std::string validStringInput();
+		void validStringInput(std::string name, std::string &var);
 		std::string get_fN();
 		std::string get_lN();
 		std::string get_nN();
