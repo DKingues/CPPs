@@ -12,9 +12,11 @@ int main (int ac, char **av)
 
 	if (ac > 1 || !av[0])
 		return (std::cout << "No parameters needed." << std::endl, 0);
-	std::cout << "Type \"ADD\", \"SEARCH\" or \"EXIT\"." << std::endl;
+	std::cout << "Type \"ADD\", \"SEARCH\" or \"EXIT\"." << std::endl << std::endl;
 	while (1)
 	{
+		if (std::cin.eof())
+			return (0);
 		std::cin >> command;
 		if (command == "ADD")
 			list.add();
@@ -26,29 +28,37 @@ int main (int ac, char **av)
 	return (0);
 }
 
-std::string	PhoneBook::validIndex(void)
+std::string PhoneBook::validIndex(void)
 {
 	std::string input;
+	std::string temp;
 	bool		isValid;
 
 	while (1)
 	{
+		
 		if (std::cin.eof())
 			exit(0);
 		std::getline(std::cin, input);
+		if (input.empty())
+        {
+            std::cout << "\033[1A\r\033[2K" << "Phonebook Index: \033[0m" << std::flush;
+            continue;
+        }
 		isValid = true;
-		for (size_t i = 0; input[i]; i++)
+		for (size_t i = 0; i < input.size(); i++)
 		{
-			if (!isdigit(input[i]) || std::atoi(input.c_str()) >= numberOfContacts)
+			if (!isdigit(input[i]) || std::atof(input.c_str()) >= numberOfContacts)
 			{
 				isValid = false;
+				std::cout <<  "\033[1A\r\033[2K" << "Phonebook Index: \033[0m" << std::flush;
 				break;
 			}
 		}
 		if (isValid && !input.empty())
-			return (input);
-		std::cout <<  "\033[1A\r\033[2K" << "\033[1;31mPhonebook Index: \033[0m" << std::flush;
-	} 
+			break;
+	}
+	return (input);
 }
 
 void	PhoneBook::getIndex(void)
@@ -72,6 +82,11 @@ void	PhoneBook::search(void)
 {
 	std::string	input;
 
+	if (numberOfContacts == 0)
+	{
+		std::cout << std::endl << "There are no contacts yet, use \"ADD\" to create a contact." << std::endl << std::endl;
+		return ;
+	}
 	std::cout << std::endl;
 	std::cout << std::setfill('-') << "+" << std::setw(11);
 	std::cout << "+" << std::setw(11) << "+" << std::setw(11);
@@ -86,16 +101,17 @@ void	PhoneBook::search(void)
 		std::cout << "+" << std::setw(11) << "+" << std::endl;
 		std::cout << "|" << std::setw(10) << std::setfill(' ') << i;
 		std::cout << "|" << std::setw(10) << contacts[i].get_fN();
-		std::cout << "|" << std::setw(10) << contacts[i].get_fN();
-		std::cout << "|" << std::setw(10) << contacts[i].get_fN() << "|" << std::endl;
+		std::cout << "|" << std::setw(10) << contacts[i].get_lN();
+		std::cout << "|" << std::setw(10) << contacts[i].get_nN() << "|" << std::endl;
 	}
 	std::cout << std::setfill('-') << "+" << std::setw(11);
 	std::cout << "+" << std::setw(11) << "+" << std::setw(11);
 	std::cout << "+" << std::setw(11) << "+" << std::endl << std::endl;
+	std::cout << std::endl;
 	input = validIndex();
 	std::cout <<  "\033[1A\r\033[2K" << "\033[1;32mPhonebook Index: \033[0m" << input << std::flush << std::endl;
 	std::cout << std::endl << "\033[0;36mContact Info\033[0m" << std::endl << std::endl;
-	printInfo(std::atoi(input.c_str()));
+	printInfo(std::atof(input.c_str()));
 }
 
 
