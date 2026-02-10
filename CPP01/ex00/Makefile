@@ -1,12 +1,12 @@
 # Name and Compiler
 
-NAME = phonebook
+NAME = BraiiiiiiinnnzzzZ
 
 COMPILER = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = PhoneBook.cpp Contact.cpp
+SRC = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
 # Sources and Objects
 

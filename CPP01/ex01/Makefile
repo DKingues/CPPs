@@ -1,12 +1,12 @@
 # Name and Compiler
 
-NAME = phonebook
+NAME = Horde
 
 COMPILER = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = PhoneBook.cpp Contact.cpp
+SRC = main.cpp Zombie.cpp zombieHorde.cpp
 
 # Sources and Objects
 

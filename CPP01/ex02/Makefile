@@ -1,12 +1,12 @@
 # Name and Compiler
 
-NAME = phonebook
+NAME = brain
 
 COMPILER = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = PhoneBook.cpp Contact.cpp
+SRC = main.cpp
 
 # Sources and Objects
 
@@ -32,5 +32,4 @@ clean:
 	@$(DEL)
 fclean: clean
 	@rm -rf $(NAME)
-
 re: fclean all
