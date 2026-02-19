@@ -14,34 +14,52 @@
 #include <fstream>
 #include <string>
 
+
+int parsing (int ac, char **av)
+{
+	std::string string;
+
+	if (ac != 4)
+		return (std::cout << "Invalid: arguments." << std::endl, 0);
+	string = av[2];
+	if (string.empty())
+		return (std::cout << "Invalid: string is empty." << std::endl, 0);
+	string = av[3];
+	if (string.empty())
+		return (std::cout << "Invalid: string is empty." << std::endl, 0);
+	return (1);
+}
+
 int	main(int ac, char **av)
 {
-	if (ac == 4)
+	if (parsing(ac, av))
 	{
 		std::string		s1 = av[2];
 		std::string		s2 = av[3];
 		std::string		readStr;
-		std::string		newStr;
+		std::string		newFileName = av[1];
 		std::ifstream	file(av[1]);
 		std::ofstream	newFile;
 		int				pos;
-		int				i = 0;
 
-		newFile.open("file2.txt");
-
+		newFileName += ".replace";
+		newFile.open(newFileName.c_str());
 		while (getline(file, readStr))
 		{
-			while (readStr[i])
-			{	
-				std::cout << "aqui";
-				pos = readStr.find(s1);
+			for (int i = 0; readStr[i]; i++)
+			{
+				pos = readStr.find(s1, i);
 				if (pos > -1)
 				{
-					readStr += s2;
+					for (int j = i; j < pos; j++)
+						newFile << readStr[j];
+					newFile << s2;
+					i += pos + s1.size() - 1;
 				}
-				i++;
+				else
+					newFile << readStr[i];
 			}
-			newFile.write(readStr.c_str(), readStr.size());
+			newFile << std::endl;
 		}
 		file.close();
 		newFile.close();
@@ -49,12 +67,3 @@ int	main(int ac, char **av)
 	return (0);
 }
 
-/*
-Ler linha do ficheiro;
-Iterar pela linha encontrar trocar
-Igualar a readLine a newLine e voltar a ler
-
-Coletando mais peixe e Col onda da Col
-aaa1234etando mais peixe e Col onda da Col
-
-*/

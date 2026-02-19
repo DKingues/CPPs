@@ -32,5 +32,5 @@ clean:
 	@$(DEL)
 fclean: clean
 	@rm -rf $(NAME)
-
+	@rm file.txt.replace
 re: fclean all
