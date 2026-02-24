@@ -1,6 +1,6 @@
 # Name and Compiler
 
-NAME = harl
+NAME = harlFilter
 
 COMPILER = c++
 

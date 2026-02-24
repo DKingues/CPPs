@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicosta- <dicosta-@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-02-19 19:56:04 by dicosta-          #+#    #+#             */
-/*   Updated: 2026-02-19 19:56:04 by dicosta-         ###   ########.fr       */
+/*   Created: 2026-02-20 20:11:08 by dicosta-          #+#    #+#             */
+/*   Updated: 2026-02-20 20:11:08 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#include <iostream>
+#include <string>
 
-int main(int ac, char **av)
+class Harl
 {
-    Harl complainer;
-
-    if (ac < 2)
-        return (std::cout << "Invalid: Wrong number of arguments." << std::endl, 0);
-    for (int i = 1; i < ac; i++)
-        complainer.complain(av[i]);
-    return (0);
-}
+    private:
+        void    debug(void);
+        void    info(void);
+        void    warning(void);
+        void    error(void);
+    public:
+        Harl();
+        ~Harl();
+        void    complain(std::string level);
+};
