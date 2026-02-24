@@ -65,7 +65,7 @@ void    Harl::complain(std::string level)
             Harl::error();
             break;
         default:
-            std::cout << "Everything was perfect, harl is satisfied." << std::endl;
+            std::cout << "[DEFAULT]" << std::endl << "Everything was perfect, harl is satisfied." << std::endl << std::endl;
             break;
     }
     return ;
