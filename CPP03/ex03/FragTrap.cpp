@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dicosta- <dicosta-@student.42.fr>          #+#  +:+       +#+        */
+/*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-02-27 21:34:06 by dicosta-          #+#    #+#             */
-/*   Updated: 2026-02-27 21:34:06 by dicosta-         ###   ########.fr       */
+/*   Created: 2026/02/27 21:34:06 by dicosta-          #+#    #+#             */
+/*   Updated: 2026/03/03 23:41:44 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ FragTrap::FragTrap(std::string name)
     _attack = 30;
 }
 
-FragTrap::FragTrap(const FragTrap &toCopy)
+FragTrap::FragTrap(const FragTrap &toCopy):ClapTrap(toCopy)
 {
     std::cout << "[FragTrap copy constructor]" << std::endl;
     this->_name = toCopy._name;

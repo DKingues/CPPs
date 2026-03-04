@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dicosta- <dicosta-@student.42.fr>          #+#  +:+       +#+        */
+/*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-02-27 20:28:34 by dicosta-          #+#    #+#             */
-/*   Updated: 2026-02-27 20:28:34 by dicosta-         ###   ########.fr       */
+/*   Created: 2026/02/27 20:28:34 by dicosta-          #+#    #+#             */
+/*   Updated: 2026/03/03 23:45:26 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define SCAVTRAP_HPP
 #include "ClapTrap.hpp"
 
-class ScavTrap:public ClapTrap
+class ScavTrap:virtual public ClapTrap
 {
     public:
         ScavTrap();

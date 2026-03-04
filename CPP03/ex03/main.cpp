@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dicosta- <dicosta-@student.42.fr>          #+#  +:+       +#+        */
+/*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-02-27 19:04:07 by dicosta-          #+#    #+#             */
-/*   Updated: 2026-02-27 19:04:07 by dicosta-         ###   ########.fr       */
+/*   Created: 2026/02/27 19:04:07 by dicosta-          #+#    #+#             */
+/*   Updated: 2026/03/04 17:18:21 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ int main(void)
     // std::cout << "FragTrap Testing" << std::endl;
     // c.attack("Rinato");
     // c.highFivesGuys();
-    d.attack("Rinatu");
+    d.whoAmI();
+	std::cout << d.getHealth() << std::endl;
+	std::cout << d.getEnergy() << std::endl;
+	std::cout << d.getAttack() << std::endl;
+	d.attack("RINUTU");
     return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dicosta- <dicosta-@student.42.fr>          #+#  +:+       +#+        */
+/*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-02-27 21:34:27 by dicosta-          #+#    #+#             */
-/*   Updated: 2026-02-27 21:34:27 by dicosta-         ###   ########.fr       */
+/*   Created: 2026/02/27 21:34:27 by dicosta-          #+#    #+#             */
+/*   Updated: 2026/03/04 16:45:35 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class   FragTrap:public ClapTrap
+class   FragTrap:virtual public ClapTrap
 {
     public:
         FragTrap();

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dicosta- <dicosta-@student.42.fr>          #+#  +:+       +#+        */
+/*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-02-27 20:28:15 by dicosta-          #+#    #+#             */
-/*   Updated: 2026-02-27 20:28:15 by dicosta-         ###   ########.fr       */
+/*   Created: 2026/02/27 20:28:15 by dicosta-          #+#    #+#             */
+/*   Updated: 2026/03/04 16:37:15 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ ScavTrap::ScavTrap(std::string name)
     _attack = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &toCopy)
+ScavTrap::ScavTrap(const ScavTrap &toCopy):ClapTrap(toCopy)
 {
     std::cout << "[ScavTrap copy constructor]" << std::endl;
     this->_name = toCopy._name;
@@ -48,7 +48,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &other)
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "[ScavTrap Default destructor]" << std::endl;
+    std::cout << "[ScavTrap destructor]" << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target)

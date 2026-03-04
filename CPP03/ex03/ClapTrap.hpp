@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dicosta- <dicosta-@student.42.fr>          #+#  +:+       +#+        */
+/*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-02-27 19:04:26 by dicosta-          #+#    #+#             */
-/*   Updated: 2026-02-27 19:04:26 by dicosta-         ###   ########.fr       */
+/*   Created: 2026/02/27 19:04:26 by dicosta-          #+#    #+#             */
+/*   Updated: 2026/03/04 16:46:13 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ClapTrap
     public:
         ClapTrap();
         ClapTrap(std::string name);
-        ~ClapTrap();
+        virtual ~ClapTrap();
         ClapTrap(const ClapTrap& toCopy);
         ClapTrap& operator=(const ClapTrap &other);
         void attack(const std::string&target);
