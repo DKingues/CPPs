@@ -5,31 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicosta- <dicosta-@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-02-25 19:08:53 by dicosta-          #+#    #+#             */
-/*   Updated: 2026-02-25 19:08:53 by dicosta-         ###   ########.fr       */
+/*   Created: 2026-02-24 20:11:15 by dicosta-          #+#    #+#             */
+/*   Updated: 2026-02-24 20:11:15 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int main( void )
+int main(void)
 {
-    Fixed a;
-    Fixed const b(Fixed( 5.05f ) * Fixed( 2 ));
-    Fixed const c(1222);
-    Fixed d(2);
+    Fixed a;        // Default constructor
+    Fixed b(a);     // Copy constructor
+    Fixed c;        // Default constructor
 
-    if (b <= c)
-        std::cout << "c bigger\n";
-    if (c > b)
-        std::cout << "not bigger\n";
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << (c == b) << std::endl;
-    std::cout << Fixed::min( c, b ) << std::endl;
-    return (0);
+    c = b;          // Assignment operator
+
+    std::cout << a.getRawBits() << std::endl;
+    std::cout << b.getRawBits() << std::endl;
+    std::cout << c.getRawBits() << std::endl;
+    return 0;
 }
+
+/*
+    a created with 0 raw bits.
+    b created and copied rawBits from a.
+    c created with 0 raw bits
+
+    c uses assignment operator to get the value of rawBits from b;
+*/

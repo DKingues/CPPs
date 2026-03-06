@@ -14,30 +14,26 @@
 
 Fixed::Fixed()
 {
-    _fractionalBits = 8;
     _value = 0;
     std::cout << "[DEFAULT CONSTRUCTOR]" << std::endl;
 };
 
 Fixed::Fixed(const int i)
 {
-    _fractionalBits = 8;
     _value = i << _fractionalBits;
     std::cout << "[INTEGER CONSTRUCTOR]" << std::endl;
 };
 
 Fixed::Fixed(const float f)
 {
-    _fractionalBits = 8;
     _value = roundf(f * (1 << _fractionalBits));
     std::cout << "[FLOAT CONSTRUCTOR]" << std::endl;
 };
 
-Fixed::Fixed(const Fixed &other)
+Fixed::Fixed(const Fixed &toCopy)
 {
     std::cout << "[COPY CONSTRUCTOR]" << std::endl;
-    this->_value = other._value;
-    this->_fractionalBits = other._fractionalBits;
+    *this = toCopy; 
 };
 
 Fixed& Fixed::operator=(const Fixed &other)
@@ -45,7 +41,6 @@ Fixed& Fixed::operator=(const Fixed &other)
     if (this != &other)
     {
         this->_value = other._value;
-        this->_fractionalBits = other._fractionalBits;
         std::cout << "[ASSIGNMENT OPERATOR]" << std::endl;
     }
     else 
@@ -76,15 +71,37 @@ std::ostream& operator<<(std::ostream& os, const Fixed& f)
 
 Fixed Fixed::operator++(int)
 {
-    Fixed temp(*this);
+    std::cout << "[Post increment]" << std::endl;
+    Fixed temp;
+
+    temp = *this;
     this->_value++;
-    return temp;
+    return (temp);
 }
 
-// Fixed Fixed::operator--(int)
-// {
-//     this->_value -= 1;
-// }
+Fixed Fixed::operator--(int)
+{
+    std::cout << "[Post decrement]" << std::endl;
+    Fixed temp;
+
+    temp = *this;
+    this->_value--;
+    return (temp);
+}
+
+Fixed Fixed::operator++(void)
+{
+    std::cout << "[Pre increment]" << std::endl;
+    this->_value++;
+    return (*this);
+}
+
+Fixed Fixed::operator--(void)
+{
+    std::cout << "[Pre decrement]" << std::endl;
+    this->_value--;
+    return (*this);
+}
 
 Fixed Fixed::operator*(const Fixed &b)
 {
@@ -92,47 +109,46 @@ Fixed Fixed::operator*(const Fixed &b)
     Fixed result;
 
     result._value = (this->_value * b._value) >> 8;
-    result._fractionalBits = 8;
     return (result);
 }
 
 Fixed Fixed::operator+(const Fixed &b)
 {
+    std::cout << "[Operator +]" << std::endl;
     Fixed result;
 
-    result._value = (this->_value + b._value) >> 8;
-    result._fractionalBits = 8;
+    result._value = this->_value + b._value;
     return (result);
 }
 
 Fixed Fixed::operator-(const Fixed &b)
 {
+    std::cout << "[Operator -]" << std::endl;
     Fixed result;
 
-    result._value = (this->_value - b._value) >> 8;
-    result._fractionalBits = 8;
+    result._value = this->_value - b._value;
     return (result);
 }
 
 Fixed Fixed::operator/(const Fixed &b)
 {
+    std::cout << "[Operator /]" << std::endl;
     Fixed result;
 
-    result._value = (this->_value / b._value) >> 8;
-    result._fractionalBits = 8;
+    result._value = (this->_value << 8) / b._value;
     return (result);
 }
 
 const Fixed& Fixed::max(const Fixed &a, const Fixed &b)
 {
     if (a._value > b._value)
-        return (a);;
+        return (a);
     return (b);
 }
 
 const Fixed& Fixed::min(const Fixed &a, const Fixed &b)
 {
-    if (a._value > b._value)
+    if (a._value < b._value)
         return (a);
     return (b);
 }
@@ -146,7 +162,38 @@ Fixed& Fixed::max(Fixed &a, Fixed &b)
 
 Fixed& Fixed::min(Fixed &a, Fixed &b)
 {
-    if (a._value > b._value)
+    if (a._value < b._value)
         return (a);
     return (b);
 }
+
+bool Fixed::operator<(const Fixed& obj) const
+{
+    return (this->_value < obj._value);
+}
+
+bool Fixed::operator>(const Fixed& obj) const
+{
+    return (this->_value > obj._value);
+}
+
+bool Fixed::operator<=(const Fixed& obj) const
+{
+    return (this->_value <= obj._value);
+}
+
+bool Fixed::operator>=(const Fixed& obj) const
+{
+    return (this->_value >= obj._value);
+}
+
+bool Fixed::operator==(const Fixed& obj) const
+{
+    return (this->_value == obj._value);
+}
+
+bool Fixed::operator!=(const Fixed& obj) const
+{
+    return (this->_value != obj._value);
+}
+
