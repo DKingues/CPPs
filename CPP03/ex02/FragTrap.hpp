@@ -23,7 +23,7 @@ class   FragTrap:public ClapTrap
         FragTrap(const FragTrap &toCopy);
         FragTrap& operator=(const FragTrap &other);
         ~FragTrap();
-        void    attack(const std::string& target);
+        // void    attack(const std::string& target);
         void    highFivesGuys(void);
 };
 

@@ -15,6 +15,11 @@
 FragTrap::FragTrap()
 {
     std::cout << "[FragTrap Default constructor]" << std::endl;
+
+    _name = "Default FragTrap";
+    _health = 100;
+    _energy = 100;
+    _attack = 30;
 };
 
 FragTrap::FragTrap(std::string name)
@@ -30,10 +35,7 @@ FragTrap::FragTrap(std::string name)
 FragTrap::FragTrap(const FragTrap &toCopy)
 {
     std::cout << "[FragTrap copy constructor]" << std::endl;
-    this->_name = toCopy._name;
-    this->_health = toCopy._health;
-    this->_energy = toCopy._energy;
-    this->_attack = toCopy._attack;
+    *this = toCopy;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap &other)
@@ -41,7 +43,10 @@ FragTrap& FragTrap::operator=(const FragTrap &other)
     if (this != &other)
     {
         std::cout << "[FragTrap assignment operator]" << std::endl;
-        *this = other;
+        this->_name = other._name;
+        this->_health = other._health;
+        this->_energy = other._energy;
+        this->_attack = other._attack;
     }
     return (*this);
 }
@@ -51,13 +56,17 @@ FragTrap::~FragTrap()
     std::cout << "[FragTrap Default destructor]" << std::endl;
 }
 
-void FragTrap::attack(const std::string& target)
-{
-    std::cout << "FragTrap " << this->getName();
-    std::cout << " attacks " << target;
-    std::cout << " causing " << this->getAttack();
-    std::cout << " points of damage. " << std::endl;
-}
+// void FragTrap::attack(const std::string& target)
+// {
+//     if (this->_energy > 0 && this->_health > 0)
+//     {
+//         std::cout << "FragTrap " << this->getName();
+//         std::cout << " attacks " << target;
+//         std::cout << " causing " << this->getAttack();
+//         std::cout << " points of damage. " << std::endl;
+//         this->_energy -= 1;
+//     }
+// }
 
 void FragTrap::highFivesGuys(void)
 {

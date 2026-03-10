@@ -19,7 +19,7 @@
 class DiamondTrap:public ScavTrap, public FragTrap
 {
     private:
-        std::string name_;
+        std::string _name;
     public:
         DiamondTrap();
         DiamondTrap(std::string name);
@@ -28,6 +28,7 @@ class DiamondTrap:public ScavTrap, public FragTrap
         ~DiamondTrap();
         void whoAmI();
 		using ScavTrap::attack;
+        using ScavTrap::_energy;
 };
 
 #endif

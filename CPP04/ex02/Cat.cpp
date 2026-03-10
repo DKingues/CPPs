@@ -21,8 +21,7 @@ Cat::Cat()
 
 Cat::Cat(const Cat &toCopy):Animal(toCopy)
 {
-	this->brain = toCopy.brain;
-	this->_type = toCopy._type;
+	*this = toCopy;
 }
 
 Cat& Cat::operator=(const Cat &other)
@@ -30,7 +29,8 @@ Cat& Cat::operator=(const Cat &other)
 	if (this != &other)
 	{
 		std::cout << "[Assignment operator]" << std::endl;
-		*this = other;
+		this->brain = other.brain;
+		this->_type = other._type;
 	}
 	return (*this);
 }

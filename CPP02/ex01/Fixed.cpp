@@ -40,10 +40,8 @@ Fixed& Fixed::operator=(const Fixed &other)
     if (this != &other)
     {
         this->_value = other._value;
-        std::cout << "[ASSIGNMENT OPERATOR]" << std::endl;
+        std::cout << "[COPY ASSIGNMENT OPERATOR]" << std::endl;
     }
-    else 
-        std::cout << "[ASSIGNMENT OPERATOR NOT NEEDED]" << std::endl;
     return (*this);
 };
 

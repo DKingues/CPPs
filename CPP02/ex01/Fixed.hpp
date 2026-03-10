@@ -26,10 +26,8 @@ class Fixed
         Fixed(const Fixed &toCopy);
         Fixed& operator=(const Fixed &other);
         ~Fixed();
-        float toFloat( void ) const;
-        int toInt( void ) const;
-        int getValueInt(void);
-        float   getValueFloat(void);
+        float   toFloat( void ) const;
+        int     toInt( void ) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& f);

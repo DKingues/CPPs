@@ -30,10 +30,7 @@ FragTrap::FragTrap(std::string name)
 FragTrap::FragTrap(const FragTrap &toCopy):ClapTrap(toCopy)
 {
     std::cout << "[FragTrap copy constructor]" << std::endl;
-    this->_name = toCopy._name;
-    this->_health = toCopy._health;
-    this->_energy = toCopy._energy;
-    this->_attack = toCopy._attack;
+    *this = toCopy;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap &other)
@@ -41,14 +38,17 @@ FragTrap& FragTrap::operator=(const FragTrap &other)
     if (this != &other)
     {
         std::cout << "[FragTrap assignment operator]" << std::endl;
-        *this = other;
+        this->_name = other._name;
+        this->_health = other._health;
+        this->_energy = other._energy;
+        this->_attack = other._attack;
     }
     return (*this);
 }
 
 FragTrap::~FragTrap()
 {
-    std::cout << "[FragTrap Default destructor]" << std::endl;
+    std::cout << "[FragTrap Destructor]" << std::endl;
 }
 
 void FragTrap::attack(const std::string& target)

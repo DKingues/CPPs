@@ -19,14 +19,14 @@ Dog::Dog()
 }
 Dog::Dog(const Dog &toCopy):Animal(toCopy)
 {
-	this->_type = toCopy._type;
+	*this = toCopy;
 }
 Dog& Dog::operator=(const Dog &other)
 {
 	if (this != &other)
 	{
 		std::cout << "[Assignment operator]" << std::endl;
-		*this = other;
+		this->_type = other._type;
 	}
 	return (*this);
 }

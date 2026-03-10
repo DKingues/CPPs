@@ -15,6 +15,12 @@
 DiamondTrap::DiamondTrap()
 {
     std::cout << "[DiamondTrap Default constructor]" << std::endl;
+
+    _name = "Default";
+    ClapTrap::_name = _name + "_clap_name";
+    _health = FragTrap::_health;
+    _energy = 50;
+    _attack = FragTrap::_attack;
 };
 
 DiamondTrap::DiamondTrap(std::string name):ClapTrap(name), ScavTrap(name), FragTrap(name)
@@ -22,7 +28,7 @@ DiamondTrap::DiamondTrap(std::string name):ClapTrap(name), ScavTrap(name), FragT
     std::cout << "[DiamondTrap constructor]" << std::endl;
 
 	ClapTrap::_name = (name + "_clap_name");
-    name_ = name;
+    _name = name;
     _health = FragTrap::_health;
     _energy = 50;
     _attack = FragTrap::_attack;
@@ -31,10 +37,7 @@ DiamondTrap::DiamondTrap(std::string name):ClapTrap(name), ScavTrap(name), FragT
 DiamondTrap::DiamondTrap(const DiamondTrap &toCopy):ClapTrap(toCopy), ScavTrap(toCopy), FragTrap(toCopy)
 {
     std::cout << "[DiamondTrap copy constructor]" << std::endl;
-    this->name_ = toCopy.name_;
-    this->_health = toCopy._health;
-    this->_energy = toCopy._energy;
-    this->_attack = toCopy._attack;
+    *this = toCopy;
 }
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap &other)
@@ -42,18 +45,21 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap &other)
     if (this != &other)
     {
         std::cout << "[DiamondTrap assignment operator]" << std::endl;
-        *this = other;
+        this->_name = other._name;
+        this->_health = other._health;
+        this->_energy = other._energy;
+        this->_attack = other._attack;
     }
     return (*this);
 }
 
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << "[DiamondTrap deconstructor]" << std::endl;
+	std::cout << "[DiamondTrap Deconstructor]" << std::endl;
 }
 
 void    DiamondTrap::whoAmI(void)
 {
-	std::cout << "DiamondTrap " << this->name_ << std::endl;
-	std::cout << "ClapTrap " << this->_name << std::endl;
+	std::cout << "DiamondTrap " << this->_name << std::endl;
+	std::cout << "ClapTrap " << ClapTrap::_name << std::endl;
 }

@@ -20,9 +20,9 @@ int main( void )
     Fixed d(2);
 
     if (b <= c)
-        std::cout << "c bigger\n";
+        std::cout << "B smaller or equal\n";
     if (c > b)
-        std::cout << "not bigger\n";
+        std::cout << "C BIGGER\n";
     std::cout << a << std::endl;
     std::cout << ++a << std::endl;
     std::cout << a << std::endl;

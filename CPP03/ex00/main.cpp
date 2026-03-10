@@ -16,6 +16,9 @@ int main(void)
 {
     ClapTrap a("Diogo");
     a.attack("Renato");
-
+    std::cout << "Health: " << a.getHealth() << std::endl;
+    std::cout << "Energy: " << a.getEnergy() << std::endl;
+    std::cout << "Attack: " << a.getAttack() << std::endl;
+    a.beRepaired(1);
     return (0);
 }

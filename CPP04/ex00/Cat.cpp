@@ -14,19 +14,19 @@
 
 Cat::Cat()
 {
-	this->_type = "Cat";
+	_type = "Cat";
 	std::cout << "[Default Cat constructor]" << std::endl;
 }
 Cat::Cat(const Cat &toCopy):Animal(toCopy)
 {
-	this->_type = toCopy._type;
+	*this = toCopy;
 }
 Cat& Cat::operator=(const Cat &other)
 {
 	if (this != &other)
 	{
 		std::cout << "[Assignment operator]" << std::endl;
-		*this = other;
+		this->_type = other._type;
 	}
 	return (*this);
 }

@@ -20,7 +20,7 @@ Animal::Animal()
 
 Animal::Animal(const Animal &toCopy)
 {
-	this->_type = toCopy._type;
+	*this = toCopy;
 }
 
 Animal& Animal::operator=(const Animal &other)
@@ -28,7 +28,7 @@ Animal& Animal::operator=(const Animal &other)
 	if (this != &other)
 	{
 		std::cout << "[Assignment operator]" << std::endl;
-		*this = other;
+		this->_type = other._type;
 	}
 	return (*this);
 }

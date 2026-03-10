@@ -17,19 +17,22 @@ Animal::Animal()
 	_type = "Animal";
 	std::cout << "[Default Animal constructor]" << std::endl;
 }
+
 Animal::Animal(const Animal &toCopy)
 {
-	this->_type = toCopy._type;
+	*this = toCopy;
 }
+
 Animal& Animal::operator=(const Animal &other)
 {
 	if (this != &other)
 	{
 		std::cout << "[Assignment operator]" << std::endl;
-		*this = other;
+		this->_type = other._type;
 	}
 	return (*this);
 }
+
 Animal::~Animal()
 {
 	std::cout << "[Animal Deconstructor]" << std::endl;
