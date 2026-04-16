@@ -17,10 +17,12 @@ WrongCat::WrongCat() : WrongAnimal()
 	_type = "Wrong Cat";
 	std::cout << "[Default WrongCat constructor]" << std::endl;
 }
+
 WrongCat::WrongCat(const WrongCat &toCopy) : WrongAnimal(toCopy)
 {
 	*this = toCopy;
 }
+
 WrongCat& WrongCat::operator=(const WrongCat &other)
 {
 	if (this != &other)
@@ -30,6 +32,7 @@ WrongCat& WrongCat::operator=(const WrongCat &other)
 	}
 	return (*this);
 }
+
 WrongCat::~WrongCat()
 {
 	std::cout << "[Wrong Cat Deconstructor]" << std::endl;
