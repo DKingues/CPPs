@@ -1,12 +1,12 @@
 # Name and Compiler
 
-NAME = Animals
+NAME = Bureaucrat
 
 COMPILER = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp
 
 # Sources and Objects
 
@@ -17,9 +17,9 @@ OBJ = $(SRC:.cpp=.o)
 
 # Messages
 
-COMP = echo "Program status: \033[1;32m[OK]\033[0m"
+COMP = echo "Beureaucrat status: \033[1;32m[OK]\033[0m"
 
-DEL = echo "Program status: \033[1;31m[KO]\033[0m"
+DEL = echo "Beureaucrat status: \033[1;31m[KO]\033[0m"
 
 # Execution
 
