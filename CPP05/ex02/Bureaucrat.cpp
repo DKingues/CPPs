@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: retr0 <retr0@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 17:55:47 by dicosta-          #+#    #+#             */
-/*   Updated: 2026/04/17 18:21:55 by retr0            ###   ########.fr       */
+/*   Updated: 2026/04/18 22:29:24 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "ShruberryCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -85,9 +88,23 @@ void Bureaucrat::decrementGrade()
 	}
 };
 
-void Bureaucrat::signForm(Form &f)
+void Bureaucrat::signForm(AForm &f)
 {
 	f.beSigned(*this);
+};
+
+void Bureaucrat::executeForm(const AForm &form)
+{
+	try
+	{
+		form.execute(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
+		
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)

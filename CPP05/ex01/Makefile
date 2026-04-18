@@ -1,6 +1,6 @@
 # Name and Compiler
 
-NAME = Bureaucrat
+NAME = Form
 
 COMPILER = c++
 

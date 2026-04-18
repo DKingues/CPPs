@@ -1,12 +1,12 @@
 # Name and Compiler
 
-NAME = Bureaucrat
+NAME = AForm
 
 COMPILER = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp ShruberryCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
 # Sources and Objects
 
