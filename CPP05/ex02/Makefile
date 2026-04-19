@@ -29,6 +29,7 @@ $(NAME): $(OBJ)
 	@$(COMP)
 clean:
 	@rm -rf $(OBJ)
+	@find . -name "*.txt" -type f -delete
 	@$(DEL)
 fclean: clean
 	@rm -rf $(NAME)

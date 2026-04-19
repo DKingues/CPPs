@@ -6,7 +6,7 @@
 /*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 16:18:56 by retr0             #+#    #+#             */
-/*   Updated: 2026/04/18 22:28:48 by dicosta-         ###   ########.fr       */
+/*   Updated: 2026/04/19 12:29:11 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ class AForm
         int gradeSign() const;
         int gradeExec() const;
         void beSigned(const Bureaucrat &b);
-		void execute(const Bureaucrat &b) const;
+		void execute(const Bureaucrat &executor) const;
+		virtual void executeForm() const = 0;
         class GradeTooHighException : public std::exception
         {
             public:

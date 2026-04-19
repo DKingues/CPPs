@@ -6,7 +6,7 @@
 /*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 16:35:30 by retr0             #+#    #+#             */
-/*   Updated: 2026/04/18 22:28:36 by dicosta-         ###   ########.fr       */
+/*   Updated: 2026/04/19 12:27:21 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,13 @@ void AForm::beSigned(const Bureaucrat &b)
     }
 };
 
-void AForm::execute(const Bureaucrat &b) const
+void AForm::execute(const Bureaucrat &executor) const
 {
-	if(!this->_signed) 
+	if(!_signed) 
 		throw(AForm::NotSignedException());
-	if (b.getGrade() > this->gradeExec())
+	if (executor.getGrade() > _gradeExec)
 		throw(GradeTooLowException());
+	executeForm();
 }
 
 std::ostream& operator<<(std::ostream &os, const AForm &f)

@@ -6,7 +6,7 @@
 /*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 20:21:42 by dicosta-          #+#    #+#             */
-/*   Updated: 2026/04/18 22:19:21 by dicosta-         ###   ########.fr       */
+/*   Updated: 2026/04/19 12:26:39 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm(const PresidentialPardonForm &other);
 		PresidentialPardonForm& operator=(const PresidentialPardonForm &other);
 		~PresidentialPardonForm();
-		void execute(const Bureaucrat &executor);
+		void executeForm() const;
 };
 
 #endif
