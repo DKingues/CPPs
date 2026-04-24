@@ -6,18 +6,15 @@
 /*   By: retr0 <retr0@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 18:31:16 by retr0             #+#    #+#             */
-/*   Updated: 2026/04/23 18:31:34 by retr0            ###   ########.fr       */
+/*   Updated: 2026/04/24 17:37:12 by retr0            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef A_HPP
 #define A_HPP
 
-#include "Base.hpp"
-
-class A: public Base
+class A : public Base
 {
-    
 };
 
 #endif

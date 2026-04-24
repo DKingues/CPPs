@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: retr0 <retr0@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/23 18:28:46 by retr0             #+#    #+#             */
-/*   Updated: 2026/04/24 18:07:53 by retr0            ###   ########.fr       */
+/*   Created: 2026/04/24 17:28:57 by retr0             #+#    #+#             */
+/*   Updated: 2026/04/24 19:02:13 by retr0            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_CPP
-#define BASE_CPP
+#include "Base.hpp"
 
-#include <iostream>
-#include <string>
-#include <cstdlib>
-
-class Base
+int main()
 {
-    public:
-        virtual ~Base();
-        static Base* generate(void);
-        static void identify(Base* p);
-        static void identify(Base& p);
-};
+    std::srand(time(NULL));
+    Base* BasePtr;
 
-#endif
+    BasePtr = Base::generate();
+    Base::identify(BasePtr);
+    Base& BaseRef = *BasePtr;
+    Base::identify(BaseRef);
+}

@@ -1,12 +1,12 @@
 # Name and Compiler
 
-NAME = serializer
+NAME = base
 
 COMPILER = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Serializer.cpp
+SRC = main.cpp Base.cpp
 
 # Sources and Objects
 
@@ -17,9 +17,9 @@ OBJ = $(SRC:.cpp=.o)
 
 # Messages
 
-COMP = echo "Beureaucrat status: \033[1;32m[OK]\033[0m"
+COMP = echo "Base status: \033[1;32m[OK]\033[0m"
 
-DEL = echo "Beureaucrat status: \033[1;31m[KO]\033[0m"
+DEL = echo "Base status: \033[1;31m[KO]\033[0m"
 
 # Execution
 
