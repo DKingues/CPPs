@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   EasyFind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: retr0 <retr0@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/25 20:08:11 by dicosta-          #+#    #+#             */
-/*   Updated: 2026/04/29 20:48:08 by retr0            ###   ########.fr       */
+/*   Created: 2026/04/29 19:06:55 by retr0             #+#    #+#             */
+/*   Updated: 2026/05/05 19:09:24 by retr0            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Array.hpp"
+#ifndef EASYFIND_HPP
+#define EASYFIND_HPP
 
-int main(void)
+#include <iostream>
+#include <string>
+#include <exception>
+#include <vector>
+
+template <typename T> int easyfind(T& param, int number)
 {
-	Array<unsigned int> FirstClass(12);
-
-    for (unsigned int i = 0; i < 16; i++)
+    for (unsigned int i = 0; i < param.size(); i++)
     {
-        try
-        {
-            FirstClass[i] = i;
-            std::cout << FirstClass.getData(i) << std::endl;
-        }
-        catch (std::exception &e)
-        {
-            std::cout << e.what() << std::endl;
-        }
+        if (param[i] == number)
+            return (i);
     }
-}
+    throw (std::exception());
+};
+
+#endif
