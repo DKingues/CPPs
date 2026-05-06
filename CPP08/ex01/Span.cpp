@@ -6,7 +6,7 @@
 /*   By: retr0 <retr0@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 22:34:16 by retr0             #+#    #+#             */
-/*   Updated: 2026/05/05 21:59:00 by retr0            ###   ########.fr       */
+/*   Updated: 2026/05/06 18:13:26 by retr0            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 Span::Span(){};
 
-Span::Span(unsigned int N) : _N(N) {};
+Span::Span(unsigned int N) : _N(N) 
+{
+    numbers.reserve(_N) ;  
+};
 
 Span::Span(const Span& other)
 {
@@ -32,33 +35,24 @@ Span& Span::operator=(const Span& other)
     return (*this);
 }
 
-void Span::addNumber(int nbr)
+void Span::addNumber(size_t nbr)
 {
-    if (_N > 0)
-    {
-        numbers.push_back(nbr);
-        _N--;
-    }
-    else
-        throw(OutOfBoundsException());
+    if (numbers.size() >= _N)
+        throw (OutOfBoundsException());
+    numbers.push_back(nbr);
 };
 
-void Span::addMultipleNumbers()
+size_t Span::shortestSpan()
 {
-    
-};
-
-unsigned int Span::shortestSpan()
-{
-    unsigned int shortestSpan = 4294967295;
-    unsigned int temp = 0;
+    size_t shortestSpan = 4294967295;
+    size_t temp = 0;
 
     if (numbers.size() <= 1)
         throw(OutOfBoundsException());
 
-    for (unsigned int i = 0; i < numbers.size(); i++)
+    for (size_t i = 0; i < numbers.size(); i++)
     {
-        for (unsigned int j = 0; j < numbers.size(); j++)
+        for (size_t j = 0; j < numbers.size(); j++)
         {
             switch (numbers[i] > numbers[j])
             {
@@ -76,17 +70,17 @@ unsigned int Span::shortestSpan()
     return (shortestSpan);
 };
 
-unsigned int Span::longestSpan()
+size_t Span::longestSpan()
 {
-    unsigned int longestSpan = 0;
-    unsigned int temp = 0;
+    size_t longestSpan = 0;
+    size_t temp = 0;
 
     if (numbers.size() <= 1)
         throw(OutOfBoundsException());
 
-    for (unsigned int i = 0; i < numbers.size(); i++)
+    for (size_t i = 0; i < numbers.size(); i++)
     {
-        for (unsigned int j = 0; j < numbers.size(); j++)
+        for (size_t j = 0; j < numbers.size(); j++)
         {
             switch (numbers[i] > numbers[j])
             {
@@ -103,4 +97,3 @@ unsigned int Span::longestSpan()
     }
     return (longestSpan);  
 };
-

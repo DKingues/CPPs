@@ -6,7 +6,7 @@
 /*   By: retr0 <retr0@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 22:29:19 by retr0             #+#    #+#             */
-/*   Updated: 2026/05/05 19:37:20 by retr0            ###   ########.fr       */
+/*   Updated: 2026/05/06 18:09:55 by retr0            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include <iterator>
+#include <ctime>
+#include <cstdlib>
 #include <vector>
+#include <algorithm>
 
 class Span
 {
@@ -31,10 +35,19 @@ class Span
         
         Span& operator=(const Span& other);
 
-        void addNumber(int nbr);
-        void addMultipleNumbers();
-        unsigned int shortestSpan();
-        unsigned int longestSpan();
+        void addNumber(size_t nbr);
+        size_t shortestSpan();
+        size_t longestSpan();
+        
+        template <typename Iterator> void addMultipleNumbers(Iterator begin, Iterator end)
+        {
+            size_t dist = std::distance(begin, end);
+        
+            if (numbers.size() + dist > _N)
+                throw (OutOfBoundsException());
+        
+            numbers.insert(numbers.end(), begin, end); 
+        };
         
         void printVec(void)
         {
