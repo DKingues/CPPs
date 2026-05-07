@@ -1,12 +1,12 @@
 # Name and Compiler
 
-NAME = span
+NAME = MutantStack
 
 COMPILER = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Span.cpp
+SRC = main.cpp
 
 # Sources and Objects
 
@@ -17,9 +17,9 @@ OBJ = $(SRC:.cpp=.o)
 
 # Messages
 
-COMP = echo "Span status: \033[1;32m[OK]\033[0m"
+COMP = echo "MutantStack status: \033[1;32m[OK]\033[0m"
 
-DEL = echo "Span status: \033[1;31m[KO]\033[0m"
+DEL = echo "MutantStack status: \033[1;31m[KO]\033[0m"
 
 # Execution
 
